@@ -1,0 +1,7 @@
+ejercicio = open('prueba.txt', 'a')
+ejercicio.write('a\n')
+ejercicio.write('ggf\n')
+ejercicio.close()
+ejercicio = open('prueba.txt', 'a')
+ejercicio.write('hola')
+ejercicio.close()
