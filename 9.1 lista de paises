@@ -1,0 +1,15 @@
+inputListaPaises = input('ingrese una lista de paises: ')
+
+paises = (inputListaPaises.split(','))
+
+#elimina los espacios de cada elemento de la lista
+paisesSinEspacios = []
+for i in paises:
+    i2 = i.strip()
+    paisesSinEspacios.append(i2)
+
+#convierte la lista en set
+setPaises = set(paisesSinEspacios)
+
+
+print(f'La lista de paises ordenada es: {sorted(setPaises)}')
