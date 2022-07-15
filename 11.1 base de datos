@@ -24,10 +24,10 @@ sessionsql.execute('''insert into alumnos (id_alumno, nombre_alumno, apellido_al
 sessionsql.execute('''insert into alumnos (id_alumno, nombre_alumno, apellido_alumno) VALUES ('4508', 'tdsd', 'pefsfsdro')''')
 conn.commit()
 
-consulta = 'select * from alumnos'
+nombreAlumno = input('ingrese nombre del alumno: ')
+consulta = f"select * from alumnos where nombre_alumno ='{nombreAlumno}'"
 
 ejecutarConsulta = sessionsql.execute(consulta)
-
 
 for i in ejecutarConsulta:
     print(i[0], i[1], i[2])
