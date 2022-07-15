@@ -1,0 +1,38 @@
+from tkinter import Tk, IntVar, Radiobutton, Button
+from tkinter import messagebox
+
+
+ws = Tk()
+ws.geometry('200x200')
+
+
+def verSeleccion():
+    seleccion = var.get()
+    if seleccion == 1:
+        output = "Python"
+
+    elif seleccion == 2:
+        output = "Java"
+
+    elif seleccion == 3:
+        output = "Php"
+
+    else:
+        output = "Seleccion incorrecta"
+
+    return messagebox.showinfo('PythonGuides', f'Ha seleccionado {output}.')
+
+
+def reset():
+    return var.set(5)
+
+
+var = IntVar()
+Radiobutton(ws, text="Python", variable=var, value=1, command=verSeleccion).pack()
+Radiobutton(ws, text="Java", variable=var, value=2, command=verSeleccion).pack()
+Radiobutton(ws, text="Php", variable=var, value=3, command=verSeleccion).pack()
+rbReiniciar = Radiobutton(text="None", variable=var, value=5)
+
+Button(ws, text='reiniciar', command=reset, padx=20, pady=5).pack(pady=10)
+
+ws.mainloop()
