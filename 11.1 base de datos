@@ -1,0 +1,33 @@
+import pyodbc
+
+#este ejercicio lo hice con SQL server porque es la BD que tengo instalada
+
+conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};'
+                      'Server=127.0.0.1;'
+                      'Database=curso_python;'
+                      'Username=sa;'
+                      'Password=1234;'
+                      'Trusted_Connection=yes;')
+conn.cursor()
+sessionsql = conn.cursor()
+
+queryCrearTabla = 'create table alumnos(id_alumno int NOT NULL PRIMARY KEY,nombre_alumno varchar(100) null,apellido_alumno varchar(100) null)'
+sessionsql.execute(queryCrearTabla)
+conn.commit()
+sessionsql.execute('''insert into alumnos (id_alumno, nombre_alumno, apellido_alumno) VALUES ('4501', 'juan', 'pedro')''')
+sessionsql.execute('''insert into alumnos (id_alumno, nombre_alumno, apellido_alumno) VALUES ('4502', 'pedro', 'juan')''')
+sessionsql.execute('''insert into alumnos (id_alumno, nombre_alumno, apellido_alumno) VALUES ('4503', 'cristo', 'jesus')''')
+sessionsql.execute('''insert into alumnos (id_alumno, nombre_alumno, apellido_alumno) VALUES ('4504', 'dfgg', 'ghgh')''')
+sessionsql.execute('''insert into alumnos (id_alumno, nombre_alumno, apellido_alumno) VALUES ('4505', 'yiyo', 'portillo')''')
+sessionsql.execute('''insert into alumnos (id_alumno, nombre_alumno, apellido_alumno) VALUES ('4506', 'juan', 'abc')''')
+sessionsql.execute('''insert into alumnos (id_alumno, nombre_alumno, apellido_alumno) VALUES ('4507', 'pedro', 'ovc')''')
+sessionsql.execute('''insert into alumnos (id_alumno, nombre_alumno, apellido_alumno) VALUES ('4508', 'tdsd', 'pefsfsdro')''')
+conn.commit()
+
+consulta = 'select * from alumnos'
+
+ejecutarConsulta = sessionsql.execute(consulta)
+
+
+for i in ejecutarConsulta:
+    print(i[0], i[1], i[2])
